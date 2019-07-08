@@ -20,7 +20,6 @@ Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin'
 ], function (){
-    
     Route::group(['prefix' => 'category'] ,function(){
         Route::get('', [
             'as' => 'admin.category.index',
@@ -44,6 +43,10 @@ Route::group([
             'as' => 'admin.product.create',
             'uses' => 'ProductController@create'
         ]); //admin/category
+        Route::post('create', [
+            'as' => 'admin.product.create',
+            'uses' => 'ProductController@postCreate'
+        ]);
         Route::get('{id}/edit', [
             'as' => 'admin.product.edit',
             'uses' => 'ProductController@edit'
@@ -56,7 +59,11 @@ Route::group([
         ]); //admin/category
         Route::get('create', [
             'as' => 'admin.user.create',
-            'uses' => 'UserController@create'
+            'uses' => 'UserController@getCreate'
+        ]);
+        Route::post('create', [
+            'as' => 'admin.user.create',
+            'uses' => 'UserController@postCreate'
         ]); //admin/category
         Route::get('{id}/edit', [
             'as' => 'admin.user.edit',
@@ -85,4 +92,7 @@ Route::group(['namespace' => 'Client'], function(){
 
     Route::get('', 'HomeController@index');
 });
+
+Route::get('form', 'FormController@get');
+Route::post('form', 'FormController@post');
 

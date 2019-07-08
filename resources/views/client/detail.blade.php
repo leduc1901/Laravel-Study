@@ -9,7 +9,7 @@
 							<div class="row">
 								<div class="col-md-5">
 									<div class="product-entry">
-										<div class="product-img" style="background-image: url(images/item-6.jpg);">
+										<div class="product-img" style="background-image: url(/assets/client/images/item-6.jpg);">
 
 										</div>
 
@@ -19,9 +19,9 @@
 									<form action="product/AddCart" method="post">
 
 										<div class="desc">
-											<h3>Áo khoác nam đẹp</h3>
+										<h3>{{ $products['name']}}</h3>
 											<p class="price">
-												<span>150,000</span>
+											<span>{{ number_format($products->price)}}</span>
 											</p>
 											<p>thông tin</p>
 											<div class="size-wrap">

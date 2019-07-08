@@ -9,9 +9,9 @@
                     </div>
                     <div class="col-xs-10 text-right menu-1">
                         <ul>
-                            <li class="active"><a href="index.html">Trang chủ</a></li>
+                            <li class="active"><a href="/">Trang chủ</a></li>
                             <li class="has-dropdown">
-                                <a href="shop.html">Cửa hàng</a>
+                                <a href="san-pham">Cửa hàng</a>
                                 <ul class="dropdown">
                                     <li><a href="#">Giỏ hàng</a></li>
                                     <li><a href="#">Thanh toán</a></li>
@@ -20,7 +20,7 @@
                             </li>
                             <li><a href="gioi-thieu">Giới thiệu</a></li>
                             <li><a href="lien-he">Liên hệ</a></li>
-                            <li><a href="cart.html"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a></li>
+                            <li><a href=""><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a></li>
                         </ul>
                     </div>
                 </div>

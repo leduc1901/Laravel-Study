@@ -1,14 +1,38 @@
-@extends('client.layouts.main');
+@extends('client.layouts.main')
 @section('content')
 		<!-- main -->
 		<div class="colorlib-shop">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-9 col-md-push-3">
-						<div class="row row-pb-lg">
+							<div class="row row-pb-lg">
+								@forelse ($products as $product)
+										<div class="col-md-4 text-center">
+											<div class="product-entry">
+												<div class="product-img" style="background-image: url(/assets/client/images/item-5.jpg);">
+													<div class="cart">
+														<p>
+															<span class="addtocart"><a href="gio-hang"><i class="icon-shopping-cart"></i></a></span>
+														<span><a href="/san-pham/{{$product->id}}"><i class="icon-eye"></i></a></span>
+														</p>
+													</div>
+												</div>
+												<div class="desc">
+													<h3><a href="/san-pham/{{$product->id}}">{{$product->name}}</a></h3>
+												<p class="price"><span>{{ number_format($product->price)}}</span></p>
+												</div>
+											</div>
+										</div>
+								
+								@empty 
+									Không có sản phẩm nào
+								@endforelse
+								
+							</div>
+						{{-- <div class="row row-pb-lg">
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(images/item-5.jpg);">
+									<div class="product-img" style="background-image: url(/assets/client/images/item-5.jpg);">
 										
 										<div class="cart">
 											<p>
@@ -27,7 +51,7 @@
 							</div>
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(images/item-6.jpg);">
+									<div class="product-img" style="background-image: url(/assets/client/images/item-6.jpg);">
 
 										<div class="cart">
 											<p>
@@ -46,7 +70,7 @@
 							</div>
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(images/item-7.jpg);">
+									<div class="product-img" style="background-image: url(/assets/client/images/item-7.jpg);">
 										
 										<div class="cart">
 											<p>
@@ -65,7 +89,7 @@
 							</div>
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(images/item-8.jpg);">
+									<div class="product-img" style="background-image: url(/assets/client/images/item-8.jpg);">
 										<div class="cart">
 											<p>
 												<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span>
@@ -83,7 +107,7 @@
 							</div>
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(images/item-9.jpg);">
+									<div class="product-img" style="background-image: url(/assets/client/images/item-9.jpg);">
 
 										<div class="cart">
 											<p>
@@ -102,7 +126,7 @@
 							</div>
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(images/item-10.jpg);">
+									<div class="product-img" style="background-image: url(/assets/client/images/item-10.jpg);">
 										
 										<div class="cart">
 											<p>
@@ -121,7 +145,7 @@
 							</div>
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(images/item-11.jpg);">
+									<div class="product-img" style="background-image: url(/assets/client/images/item-11.jpg);">
 										<div class="cart">
 											<p>
 												<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span>
@@ -139,7 +163,7 @@
 							</div>
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(images/item-12.jpg);">
+									<div class="product-img" style="background-image: url(/assets/client/images/item-12.jpg);">
 										
 										<div class="cart">
 											<p>
@@ -158,7 +182,7 @@
 							</div>
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(images/item-13.jpg);">
+									<div class="product-img" style="background-image: url(/assets/client/images/item-13.jpg);">
 										
 										<div class="cart">
 											<p>
@@ -177,7 +201,7 @@
 							</div>
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(images/item-14.jpg);">
+									<div class="product-img" style="background-image: url(/assets/client/images/item-14.jpg);">
 										
 										<div class="cart">
 											<p>
@@ -196,7 +220,7 @@
 							</div>
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(images/item-15.jpg);">
+									<div class="product-img" style="background-image: url(/assets/client/images/item-15.jpg);">
 										
 										<div class="cart">
 											<p>
@@ -215,7 +239,7 @@
 							</div>
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(images/item-16.jpg);">
+									<div class="product-img" style="background-image: url(/assets/client/images/item-16.jpg);">
 										
 										<div class="cart">
 											<p>
@@ -232,17 +256,18 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> --}}
 						<div class="row">
 							<div class="col-md-12">
-								<ul class="pagination">
+								{{ $products->links() }}
+								{{-- <ul class="pagination">
 									<li class="disabled"><a href="#">&laquo;</a></li>
 									<li class="active"><a href="#">1</a></li>
 									<li><a href="#">2</a></li>
 									<li><a href="#">3</a></li>
 									<li><a href="#">4</a></li>
 									<li><a href="#">&raquo;</a></li>
-								</ul>
+								</ul> --}}
 							</div>
 						</div>
 					</div>
