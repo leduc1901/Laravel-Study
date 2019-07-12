@@ -15,7 +15,10 @@
             <div class="col-xs-6 col-md-12 col-lg-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Sửa sản phẩm</div>
-                    <div class="panel-body">
+                    <form action="{{ route('admin.products.update', $product->id)   }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="panel-body">
                         <div class="row" style="margin-bottom:40px">
                              
                                     <div class="col-md-8">
@@ -23,9 +26,7 @@
                                             <label>Danh mục</label>
                                             <select name="category" class="form-control">
                                                 <option value='1' selected>Nam</option>
-                                                <option value='3'>---|Áo khoác nam</option>
                                                 <option value='2'>Nữ</option>
-                                                <option value='4'>---|Áo khoác nữ</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -34,11 +35,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Tên sản phẩm</label>
-                                            <input  type="text" name="name" class="form-control" value="Sản phẩm 1">
+                                            <input  type="text" name="name" class="form-control" value="{{$product->name}}">
                                         </div>
                                         <div class="form-group">
                                             <label>Giá sản phẩm (Giá chung)</label>
-                                            <input  type="number" name="price" class="form-control" value="150000">
+                                            <input  type="number" name="price" class="form-control" value="{{$product->price}}">
                                         </div>
                                         <div class="form-group">
                                             <label>Sản phẩm có nổi bật</label>
@@ -82,6 +83,7 @@
                             </div>
                         <div class="clearfix"></div>
                     </div>
+                    </form>
                 </div>
 
             </div>

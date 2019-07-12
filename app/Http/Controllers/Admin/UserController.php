@@ -12,13 +12,9 @@ class UserController extends Controller
     {
         return view('admin.user.index');
     }
-    public function getCreate()
+    public function create()
     {
         return view('admin.user.create');
-    }
-    public function postCreate(postCreateRequest $request)
-    {
-        return $request->all();   
     }
     
     public function edit()

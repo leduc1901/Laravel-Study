@@ -20,11 +20,7 @@ class HomeController
     public function index()
     {
         
-        $products = Product::whereBetween('price',[ '200000' , '700000'])->get();
-        
-       
-
-            
-        return view('client.index', ['products' => $products] );
+        $products = Product::get();
+        return view('client.index', compact('products') );
     }
 }

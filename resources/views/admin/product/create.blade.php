@@ -15,6 +15,8 @@
             <div class="col-xs-6 col-md-12 col-lg-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Thêm sản phẩm</div>
+                    <form action="{{ route('admin.products.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf 
                     <div class="panel-body">
                         <div class="row" style="margin-bottom:40px">
                              
@@ -23,9 +25,7 @@
                                             <label>Danh mục</label>
                                             <select name="category" class="form-control">
                                                 <option value='1' selected>Nam</option>
-                                                <option value='3'>---|Áo khoác nam</option>
                                                 <option value='2'>Nữ</option>
-                                                <option value='4'>---|Áo khoác nữ</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -60,7 +60,7 @@
                                             <label>Ảnh sản phẩm</label>
                                             <input id="img" type="file" name="img" class="form-control hidden"
                                                 onchange="changeImg(this)">
-                                            <img id="avatar" class="thumbnail" width="100%" height="350px" src="img/import-img.png">
+                                            <img id="avatar" class="thumbnail" width="100%" height="350px" src="/assets/admin/img/import-img.png">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -72,7 +72,7 @@
 
                      
                         
-                        </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -85,6 +85,7 @@
                             </div>
                         <div class="clearfix"></div>
                     </div>
+                    </form>
                 </div>
 
             </div>

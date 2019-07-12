@@ -36,10 +36,22 @@ Route::group(['prefix' => 'products'] ,function(){
         'as' => 'admin.product.create',
         'uses' => 'ProductController@create'
     ]); //admin/category
+    Route::post('store', [
+        'as' => 'admin.products.store',
+        'uses' => 'ProductController@store'
+    ]);
     Route::get('{id}/edit', [
         'as' => 'admin.product.edit',
         'uses' => 'ProductController@edit'
     ]); //admin/category
+    Route::put('{id}', [
+        'as' => 'admin.products.update',
+        'uses' => 'ProductController@update'
+    ]);
+    Route::get('{id}', [
+        'as' => 'admin.products.delete',
+        'uses' => 'ProductController@delete'
+    ]);
 });
 Route::group(['prefix' => 'user'] ,function(){
     Route::get('', [
@@ -55,3 +67,5 @@ Route::group(['prefix' => 'user'] ,function(){
         'uses' => 'UserController@edit'
     ]); //admin/category
 });
+Route::get('login' , 'HomeController@login');
+Route::get('logout' , 'HomeController@logout');

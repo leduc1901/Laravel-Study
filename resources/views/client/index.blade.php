@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<a href="shop.html" class="f-product-1" style="background-image: url(/assets/client/images/item-1.jpg);">
+				<a href="san-pham" class="f-product-1" style="background-image: url(/assets/client/images/item-1.jpg);">
 					<div class="desc">
 						<h2>Mẫu <br>cho <br>Nam</h2>
 					</div>
@@ -61,7 +61,7 @@
 						<div class="text-rights">
 							<h3 class="title">Dặt hàng hôm nay,nhận ngay khuyến mãi!</h3>
 							<p>Đã có hơn 1000 đơn hàng được gửi đi ở khắp quốc gia.</p>
-							<p><a href="shop.html" class="btn btn-primary">Mua ngay</a> <a href="#" class="btn btn-primary btn-outline">Đọc
+							<p><a href="san-pham" class="btn btn-primary">Mua ngay</a> <a href="#" class="btn btn-primary btn-outline">Đọc
 									thêm</a></p>
 						</div>
 					</div>
@@ -86,8 +86,8 @@
 
 						<div class="cart">
 							<p>
-								<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span>
-								<span><a href="product-detail.html"><i class="icon-eye"></i></a></span>
+								<span class="addtocart"><a href="gio-hang"><i class="icon-shopping-cart"></i></a></span>
+								<span><a href="san-pham"><i class="icon-eye"></i></a></span>
 
 
 							</p>
@@ -168,7 +168,10 @@
 			</div>
 		</div>
 		<div class="row">
-			@foreach ( $products as $products )
+			@php
+				// print_r($products);die;
+			@endphp
+			@foreach ( $products as $product )
 				<div class="col-md-3 text-center">
 					<div class="product-entry">
 						<div class="product-img" style="background-image: url(/assets/client/images/item-9.jpg);">
@@ -183,8 +186,8 @@
 							</div>
 						</div>
 						<div class="desc">
-						<h3><a href="shop.html">{{ $products->name}}</a></h3>
-							<p class="price"><span>{{ number_format($products->price)}}</span> </p>
+						<h3><a href="shop.html">{{ $product->name}}</a></h3>
+							<p class="price"><span>{{ number_format($product->price)}}</span> </p>
 						</div>
 					</div>
 				</div>

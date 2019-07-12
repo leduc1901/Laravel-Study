@@ -1,4 +1,4 @@
-@extends('client.layouts.main');
+@extends('client.layouts.main')
 @section('content')
 		<!-- main -->
 		<div class="colorlib-shop">
@@ -43,7 +43,7 @@
 						<div class="product-cart">
 							<div class="one-forth">
 								<div class="product-img">
-									<img class="img-thumbnail cart-img" src="images/item-6.jpg">
+									<img class="img-thumbnail cart-img" src="/assets/client/images/item-6.jpg">
 								</div>
 								<div class="detail-buy">
 									<h4>Mã : SP01</h4>
@@ -74,7 +74,7 @@
 						<div class="product-cart">
 							<div class="one-forth">
 								<div class="product-img">
-									<img class="img-thumbnail cart-img" src="images/item-6.jpg">
+									<img class="img-thumbnail cart-img" src="/assets/client/images/item-6.jpg">
 								</div>
 								<div class="detail-buy">
 									<h4>Mã : SP01</h4>
