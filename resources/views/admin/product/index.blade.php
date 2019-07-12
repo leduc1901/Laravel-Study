@@ -56,16 +56,17 @@
 											<div class="row">
 												<div class="col-md-3"><img src="/assets/admin/img/ao-khoac.jpg" alt="Áo đẹp" width="100px" class="thumbnail"></div>
 												<div class="col-md-9">
-												<p><strong>Mã sản phẩm : SP{{$product->id}}</strong></p>
-												<p>Tên Sản Phẩm : {{ $product->name}}</p>
-													
-													
+													<p><strong>Mã sản phẩm : SP{{$product->id}}</strong></p>
+													<p>Tên Sản Phẩm : {{ $product->name}}</p>
 												</div>
 											</div>
 										</td>
 										<td>{{ number_format($product->price)}}</td>
 										<td>
 											<a class="btn btn-success" href="#" role="button">Còn hàng</a>
+										</td>
+										<td>
+											{{ $product->category()->first()->name ??''}}
 										</td>
 										<td>{{ $product->name}}</td>
 										<td>
