@@ -24,8 +24,9 @@
                                         <div class="form-group">
                                             <label>Danh mục</label>
                                             <select name="category" class="form-control">
-                                                <option value='1' selected>Nam</option>
-                                                <option value='2'>Nữ</option>
+                                                @foreach ($categories as $category)
+                                                    <option value='{{$category->id}}' selected>{{ $category->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group">

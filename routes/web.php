@@ -41,7 +41,7 @@ Route::group(['namespace' => 'Client'], function(){
 
     Route::get('san-pham', 'ProductController@shop');
 
-    Route::get('', 'HomeController@index');
+    Route::get('', 'HomeController@index')->middleware('productID');
 });
 
 Route::get('form', 'FormController@get');

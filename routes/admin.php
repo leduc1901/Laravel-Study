@@ -26,6 +26,18 @@ Route::group(['prefix' => 'category'] ,function(){
         'as' => 'admin.category.edit',
         'uses' => 'CategoryController@edit'
     ]); //admin/category
+    Route::post('store', [
+        'as' => 'admin.category.store',
+        'uses' => 'CategoryController@store'
+    ]);
+    Route::put('{id}', [
+        'as' => 'admin.category.update',
+        'uses' => 'CategoryController@update'
+    ]);
+    Route::get('{id}', [
+        'as' => 'admin.category.delete',
+        'uses' => 'CategoryController@delete'
+    ]);
 });
 Route::group(['prefix' => 'products'] ,function(){
     Route::get('', [

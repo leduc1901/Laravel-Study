@@ -14,6 +14,11 @@
         <div class="row">
             <div class="col-xs-6 col-md-12 col-lg-12">
                 <div class="panel panel-primary">
+                    @if (session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success')}}
+                    </div>
+                    @endif
                     <div class="panel-heading">Sửa sản phẩm</div>
                     <form action="{{ route('admin.products.update', $product->id)   }}" method="POST">
                         @csrf
@@ -24,9 +29,13 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Danh mục</label>
-                                            <select name="category" class="form-control">
+                                            <select name="category_id" class="form-control">
                                                 @foreach ($categories as $category)
-                                                    <option value='{{$category->id}}' selected>{{ $category->name}}</option>
+                                                    <option 
+                                                        @if ($category->id == $product->category_id)
+                                                            {{ 'selected '}}
+                                                        @endif value='{{$category->id}}'>{{ $category->name}}
+                                                    </option>
                                                 @endforeach
                                                 
                                             </select>

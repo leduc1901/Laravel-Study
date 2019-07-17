@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\User;
 use App\Models\Product;
+use Session;
 
 class HomeController 
 {
@@ -19,7 +20,11 @@ class HomeController
     }
     public function index()
     {
-        
+        //session()->put('name2', 'Zzz');
+        //session()->get('name2');
+    
+        print_r("good morning");
+
         $products = Product::get();
         return view('client.index', compact('products') );
     }

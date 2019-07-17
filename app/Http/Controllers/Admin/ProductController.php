@@ -21,16 +21,23 @@ class ProductController extends Controller
     }
     public function create()
     {
-        return view('admin.product.create');
+        $categories = Category::get();
+        $product = Product::get();
+        return view('admin.product.create', compact('product', 'categories'));
     }
     public function store(Request $request)
     {
+        $categories = Category::get();
+
         $product = Product::create([
             'name' => $request->name,
             'price' => $request->price,
             'name' => $request->name,
-
+            'category_id' => $request->category_id
         ]);
+
+        session()->flash('success' , 'Tạo mới sản phẩm thành công');
+        return redirect()->route('admin.product.edit', $product->id);
     }
     public function edit($id)
     {
@@ -40,11 +47,13 @@ class ProductController extends Controller
     }
     public function update($id, Request $request)
     {
+        $categories = Category::find($id);
         $product = Product::findOrFail($id);
         $product->name = $request->name;
         $product->price = $request->price;
+        $product->category_id = $request->category_id;
         $product->save();
-        return Redirect::to('admin/products');
+        return redirect()->route('admin.products.edit', $product->id)->with('success', 'Sửa sản phẩm thành công');
 
     }
     public function delete($id)
