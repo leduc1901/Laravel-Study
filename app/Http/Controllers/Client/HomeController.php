@@ -12,20 +12,15 @@ class HomeController
 {
     public function about()
     {
-        return view('client.about');
+        return view('client.home.about');
     }
     public function contact()
     {
-        return view('client.contact');
+        return view('client.home.contact');
     }
     public function index()
     {
-        //session()->put('name2', 'Zzz');
-        //session()->get('name2');
-    
-        print_r("good morning");
-
-        $products = Product::get();
-        return view('client.index', compact('products') );
+        
+        return view('client.home.index' );
     }
 }

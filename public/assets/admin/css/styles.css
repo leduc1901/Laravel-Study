@@ -299,12 +299,14 @@ a.bg-danger:hover {
 	letter-spacing: 0.025em;
 	height: 66px;
 	line-height: 45px;
+	
 }
 
 .panel-default .panel-heading {
 	background: #fff;
 	border-bottom: 1px solid #eee;
 	color: #5f6468;
+
 }
 
 .panel-footer {

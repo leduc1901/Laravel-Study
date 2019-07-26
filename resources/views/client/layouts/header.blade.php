@@ -11,16 +11,16 @@
                         <ul>
                             <li class="active"><a href="/">Trang chủ</a></li>
                             <li class="has-dropdown">
-                                <a href="san-pham">Cửa hàng</a>
+                                <a href="products">Cửa hàng</a>
                                 <ul class="dropdown">
-                                    <li><a href="gio-hang">Giỏ hàng</a></li>
+                                    <li><a href="cart">Giỏ hàng</a></li>
                                     <li><a href="#">Thanh toán</a></li>
 
                                 </ul>
                             </li>
-                            <li><a href="gioi-thieu">Giới thiệu</a></li>
-                            <li><a href="lien-he">Liên hệ</a></li>
-                            <li><a href="gio-hang"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a></li>
+                            <li><a href="about">Giới thiệu</a></li>
+                            <li><a href="contact">Liên hệ</a></li>
+                            <li><a href="cart"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a></li>
                         </ul>
                     </div>
                 </div>

@@ -6,16 +6,16 @@ use Illuminate\Http\Request;
 
 class CartController 
 {
-    public function cart()
+    public function index()
     {
-        return view('client.cart');
+        return view('client.cart.index');
     }
     public function checkout()
     {
-        return view('client.checkout');
+        return view('client.cart.checkout');
     }
     public function complete()
     {
-        return view('client.complete');
+        return view('client.cart.complete');
     }
 }

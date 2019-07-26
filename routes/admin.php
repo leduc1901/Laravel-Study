@@ -12,72 +12,47 @@ use Illuminate\Http;
 | is assigned the "web" middleware group. Enjoy building your Admin Route!
 |
 */
- 
-Route::group(['prefix' => 'category'] ,function(){
-    Route::get('', [
-        'as' => 'admin.category.index',
-        'uses' => 'CategoryController@index'
-    ]); //admin/category
-    Route::get('create', [
-        'as' => 'admin.category.create',
-        'uses' => 'CategoryController@create'
-    ]); //admin/category
-    Route::get('{id}/edit', [
-        'as' => 'admin.category.edit',
-        'uses' => 'CategoryController@edit'
-    ]); //admin/category
-    Route::post('store', [
-        'as' => 'admin.category.store',
-        'uses' => 'CategoryController@store'
-    ]);
-    Route::put('{id}', [
-        'as' => 'admin.category.update',
-        'uses' => 'CategoryController@update'
-    ]);
-    Route::get('{id}', [
-        'as' => 'admin.category.delete',
-        'uses' => 'CategoryController@delete'
-    ]);
-});
-Route::group(['prefix' => 'products'] ,function(){
-    Route::get('', [
-        'as' => 'admin.product.index',
-        'uses' => 'ProductController@index'
-    ]); //admin/category
-    Route::get('create', [
-        'as' => 'admin.product.create',
-        'uses' => 'ProductController@create'
-    ]); //admin/category
-    Route::post('store', [
-        'as' => 'admin.products.store',
-        'uses' => 'ProductController@store'
-    ]);
-    Route::get('{id}/edit', [
-        'as' => 'admin.product.edit',
-        'uses' => 'ProductController@edit'
-    ]); //admin/category
-    Route::put('{id}', [
-        'as' => 'admin.products.update',
-        'uses' => 'ProductController@update'
-    ]);
-    Route::get('{id}', [
-        'as' => 'admin.products.delete',
-        'uses' => 'ProductController@delete'
-    ]);
-});
-Route::group(['prefix' => 'user'] ,function(){
-    Route::get('', [
-        'as' => 'admin.user.index',
-        'uses' => 'UserController@index'
-    ]); //admin/category
-    Route::get('create', [
-        'as' => 'admin.user.create',
-        'uses' => 'UserController@create'
-    ]); //admin/category
-    Route::get('{id}/edit', [
-        'as' => 'admin.user.edit',
-        'uses' => 'UserController@edit'
-    ]); //admin/category
-});
-Route::get('login' , 'HomeController@login');
-Route::get('logout' , 'HomeController@logout');
+//Guest route
+Route::get('',[
+    'as' => 'admin.dashboard.index',
+    'uses' => 'DashboardController@index'
+]);
+
+
+
+
+Route::resource('products','ProductController',[
+    'as' => 'admin',
+    'parameters' => ['products' => 'id']
+]);
+Route::resource('users','UserController',[
+    'as' => 'admin',
+    'parameters' => ['users' => 'id']
+]);
+Route::resource('categories','CategoryController',[
+    'as' => 'admin',
+    'parameters' => ['categories' => 'id']
+]);
+
+//cai nay dat trc
+Route::get('orders/processed',[
+    'as' => 'admin.orders.processed',
+    'parameters' => ['orders' => 'id']
+]);
+Route::resource('orders','OrderController',[
+    'as' => 'admin',
+    'parameters' => ['orders' => 'id']
+]);
+
+Route::get('login',[
+    'as' => 'admin.login.showLoginForm',
+    'uses' => 'Auth\LoginController@showLoginForm'
+]);
+Route::post('login',[
+    'as' => 'admin.login.login',
+    'uses' => 'Auth\LoginController@login'
+]);
+Route::post('logout',[
+    'as' => 'admin.login.logout',
+    'uses' => 'Auth\LoginController@logout'
+]);
