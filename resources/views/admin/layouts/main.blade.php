@@ -31,7 +31,8 @@
 			var conf = confirm("Bạn có muốn xóa ko ? ");
 			return conf;
 		}
-	</script>
+    </script>
+    @stack('js')
 </body>
 
 </html>

@@ -29,31 +29,37 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-5">
-
+                                
+                            <form action="{{ route('admin.categories.store')}}" method="POST"  >
+                                @csrf
+                                @if ($errors->any())
+                                    <div class="alert bg-danger" role="alert">
+                                            <svg class="glyph stroked cancel">
+                                                <use xlink:href="#stroked-cancel"></use>
+                                            </svg>{{ $errors->first() }}!<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+                                        </div>
+                                @endif
 								<div class="form-group">
 									<label for="">Danh mục cha:</label>
-									<select class="form-control" name="parent" >
-										<option>----ROOT----</option>
-										<option>Nam</option>
-										<option>---|Áo khoác nam</option>
-										<option>---|---|Áo khoác nam</option>
-										<option selected>Nữ</option>
-										<option>---|Áo khoác nữ</option>
+									<select class="form-control" name="parent_id" >
+										<option value="0">----ROOT----</option>
+										@forelse ($categories as $category)
+											@include('admin.partials.categories_option',  ['level' => 0]);
+										@empty
+											
+										@endforelse
 									</select>
 								</div>
 								<div class="form-group">
 									<label for="">Tên Danh mục</label>
 									<input type="text" class="form-control" name="name"  placeholder="Tên danh mục mới" value="Áo khoác nữ">
-									<div class="alert bg-danger" role="alert">
-										<svg class="glyph stroked cancel">
-											<use xlink:href="#stroked-cancel"></use>
-										</svg>Tên danh mục đã tồn tại!<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
-									</div>
+
 								</div>
-								<button type="submit" class="btn btn-primary">Sửa danh mục</button>
+                                <button type="submit" class="btn btn-primary">Thêm danh mục</button>
+                            </form>
 							</div>
 							
-							
+							</div>
 						</div>
 					</div>
 				</div>
