@@ -1,13 +1,13 @@
-@forelse ($categories as $category)
+@forelse ($categories as $categoryValue)
 
-    <option value={{ $category->id}}> 
+    <option value="{{ $categoryValue->id}}" {{ $categoryValue->id === $category->parent_id? 'selected':''}}> 
         
         @for ($i = 0; $i < $level; $i++)
         -- |
         @endfor
-        {{$category->name}} 
+        {{$categoryValue->name}} 
     </option>
-    @includeWhen($category->sub->count() ,'admin.partials.categories_option', ['categories' => $category->sub, 'level'=> $level + 1])
+    @includeWhen($categoryValue->sub->count() ,'admin.partials.categories_option', ['categories' => $categoryValue->sub, 'level'=> $level + 1])
 @empty
     
 @endforelse

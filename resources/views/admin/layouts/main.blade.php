@@ -26,12 +26,7 @@
     <script src="/assets/admin/js/bootstrap.min.js"></script>
     <script src="/assets/admin/js/chart.min.js"></script>
     <script src="/assets/admin/js/chart-data.js"></script>
-    <script> 
-		function confirmz(){
-			var conf = confirm("Bạn có muốn xóa ko ? ");
-			return conf;
-		}
-    </script>
+    
     @stack('js')
 </body>
 

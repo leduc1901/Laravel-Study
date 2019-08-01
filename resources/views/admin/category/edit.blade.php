@@ -25,32 +25,46 @@
 
 		<div class="row">
 			<div class="col-md-12">
+				@if (session()->has('success'))
+					<div class="alert alert-success" role="alert">
+						{{ session()->get('success') }}
+					</div>
+				@endif
+				
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-5">
 
-								<div class="form-group">
-									<label for="">Danh mục cha:</label>
-									<select class="form-control" name="parent" >
-										<option>----ROOT----</option>
-										<option>Nam</option>
-										<option>---|Áo khoác nam</option>
-										<option>---|---|Áo khoác nam</option>
-										<option selected>Nữ</option>
-										<option>---|Áo khoác nữ</option>
-									</select>
-								</div>
-								<div class="form-group">
-									<label for="">Tên Danh mục</label>
-									<input type="text" class="form-control" name="name"  placeholder="Tên danh mục mới" value="Áo khoác nữ">
-									<div class="alert bg-danger" role="alert">
-										<svg class="glyph stroked cancel">
-											<use xlink:href="#stroked-cancel"></use>
-										</svg>Tên danh mục đã tồn tại!<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+								    
+								<form action="{{ route('admin.categories.update', $category->id) }}" method="POST"  >
+									@csrf
+									@method('PUT')
+									@if ($errors->any())
+										<div class="alert bg-danger" role="alert">
+												<svg class="glyph stroked cancel">
+													<use xlink:href="#stroked-cancel"></use>
+												</svg>{{ $errors->first() }}!<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+											</div>
+									@endif
+									<div class="form-group">
+										<label for="">Danh mục cha:</label>
+										<select class="form-control" name="parent_id" >
+											<option value="0">----ROOT----</option>
+											@forelse ($categories as $categoryValue)
+												@include('admin.partials.categories_option',  ['level' => 0]);
+											@empty
+												
+											@endforelse
+										</select>
 									</div>
-								</div>
-								<button type="submit" class="btn btn-primary">Sửa danh mục</button>
+									<div class="form-group">
+										<label for="">Tên Danh mục</label>
+										<input type="text" class="form-control" name="name"  placeholder="Tên danh mục mới" value="{{ old('name') ?? $category->name}}">
+	
+									</div>
+									<button type="submit" class="btn btn-primary">Sửa danh mục</button>
+								</form>
 							</div>
 							
 							

@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('title', 'Dashboard')
-@section('Users')
+@section('content')
 
     <!--main-->
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
@@ -16,9 +16,17 @@
                     <div class="panel-heading"><i class="fas fa-user"></i> Thêm thành viên</div>
                     <div class="panel-body">
                         <div class="row justify-content-center" style="margin-bottom:40px">
-
+                            <form action="{{ route('admin.users.store')}}" method="POST"  >
+                                @csrf
+                                @if ($errors->any())
+                                    <div class="alert bg-danger" role="alert">
+                                            <svg class="glyph stroked cancel">
+                                                <use xlink:href="#stroked-cancel"></use>
+                                            </svg>{{ $errors->first() }}!<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+                                        </div>
+                                @endif
                             <div class="col-md-8 col-lg-8 col-lg-offset-2">
-                             
+                            
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="text" name="email" class="form-control">
@@ -29,23 +37,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Full name</label>
-                                    <input type="full" name="price" class="form-control">
+                                    <input type="name" name="name" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Address</label>
-                                    <input type="address" name="price" class="form-control">
+                                    <input type="address" name="address" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Phone</label>
-                                    <input type="phone" name="price" class="form-control">
-                                </div>
-                              
-                                <div class="form-group">
-                                    <label>Level</label>
-                                    <select name="level" class="form-control">
-                                        <option value="0">admin</option>
-                                        <option selected value="0">user</option>
-                                    </select>
+                                    <input type="phone" name="phone" class="form-control">
                                 </div>
                             </div>
                             <div class="row">
@@ -55,6 +55,7 @@
                                     <button class="btn btn-danger" type="reset">Huỷ bỏ</button>
                                 </div>
                             </div>
+                            </form>
                            
 
                         </div>

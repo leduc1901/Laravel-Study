@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Users;
 
 class UserController extends Controller
 {
@@ -14,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index');
+        $users = Users::get();
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -24,7 +26,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('admin.users.create');
     }
 
     /**
@@ -35,7 +38,26 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'email' => 'required|unique:users|email',
+            'name' => 'required|unique:users',
+            'password' => 'required',
+            'address' => 'required',
+            'phone' => 'required|numeric'
+        ]);
+
+        
+
+        $user = Users::create([
+            'email' => $request->email,
+            'name' => $request->name,
+            'password' => bcrypt($request->password),
+            'address' => $request->address,
+            'phone' => $request->phone
+        ]);
+
+        return redirect()->route('admin.users.edit', $user->id)
+            ->with('success', 'Tạo mới thành công !!');
     }
 
     /**
@@ -57,7 +79,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Users::findOrFail($id);
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -69,7 +92,26 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'email' => 'required|unique:users|email',
+            'name' => 'required|unique:users',
+            'password' => 'required',
+            'address' => 'required',
+            'phone' => 'required|numeric'
+        ]);
+
+        
+
+        $user = Users::fill([
+            $user->email => $request->email,
+            $user->name => $request->name,
+            $user->password => bcrypt($request->password),
+            $user->address => $request->address,
+            $user->phone => $request->phone
+        ]);
+
+        return redirect()->route('admin.users.index')
+            ->with('success', 'Chỉnh sửa thành công !!');
     }
 
     /**
@@ -78,8 +120,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $user = Users::findOrFail($id);
+        $user->delete();
+        
+        
+        return redirect()->route('admin.users.index')
+            ->with('success', 'Xóa thành công !!');
     }
 }

@@ -19,14 +19,20 @@ Route::group(['middleware' => 'auth'], function(){
         'as' => 'admin.dashboard.index',
         'uses' => 'DashboardController@index'
     ]);
+    
     Route::resource('products','ProductController',[
         'as' => 'admin',
         'parameters' => ['products' => 'id']
+    ]);
+    Route::get('deleteUser/{id}',[
+        'as' => 'admin.users.delete',
+        'uses' => 'UserController@delete'
     ]);
     Route::resource('users','UserController',[
         'as' => 'admin',
         'parameters' => ['users' => 'id']
     ]);
+    
     Route::resource('categories','CategoryController',[
         'as' => 'admin',
         'parameters' => ['categories' => 'id']
