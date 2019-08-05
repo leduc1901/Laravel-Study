@@ -2,12 +2,7 @@
 @section('title', 'Users')
 @section('content')
 
-	<script> 
-		function confirmz(){
-			var conf = confirm("Bạn có muốn xóa ko ? ");
-			return conf;
-		}
-    </script>
+	
 	<!--main-->
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
@@ -65,7 +60,7 @@
                                             <td></td>
 											<td>
 												<a href="{{route('admin.users.edit' , $user->id)}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-												<a onclick="confirmz();" href="{{route('admin.users.delete', $user->id)}}"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+												<a onclick="return confirm('Are you sure?')" href="{{route('admin.users.delete', $user->id)}}"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
 											</td>
                                         </tr>
 										@endforeach

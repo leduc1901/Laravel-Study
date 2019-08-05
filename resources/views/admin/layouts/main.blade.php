@@ -28,6 +28,7 @@
     <script src="/assets/admin/js/chart-data.js"></script>
     
     @stack('js')
+    
 </body>
 
 </html>

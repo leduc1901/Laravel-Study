@@ -1,6 +1,6 @@
 @forelse ($categories as $categoryValue)
 
-    <option value="{{ $categoryValue->id}}" {{ $categoryValue->id === $category->parent_id? 'selected':''}}> 
+    <option value="{{ $categoryValue->id}}" {{ isset($category) && $categoryValue->id === $category->parent_id? 'selected':''}}> 
         
         @for ($i = 0; $i < $level; $i++)
         -- |

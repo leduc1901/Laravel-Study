@@ -109,6 +109,7 @@ class UserController extends Controller
             $user->address => $request->address,
             $user->phone => $request->phone
         ]);
+        $user->save();
 
         return redirect()->route('admin.users.index')
             ->with('success', 'Chỉnh sửa thành công !!');

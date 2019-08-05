@@ -19,7 +19,10 @@ Route::group(['middleware' => 'auth'], function(){
         'as' => 'admin.dashboard.index',
         'uses' => 'DashboardController@index'
     ]);
-    
+    Route::get('deleteProduct/{id}',[
+        'as' => 'admin.products.delete',
+        'uses' => 'ProductController@delete'
+    ]);
     Route::resource('products','ProductController',[
         'as' => 'admin',
         'parameters' => ['products' => 'id']
@@ -32,7 +35,10 @@ Route::group(['middleware' => 'auth'], function(){
         'as' => 'admin',
         'parameters' => ['users' => 'id']
     ]);
-    
+    Route::get('deleteCategory/{id}',[
+        'as' => 'admin.category.delete',
+        'uses' => 'CategoryController@delete'
+    ]);
     Route::resource('categories','CategoryController',[
         'as' => 'admin',
         'parameters' => ['categories' => 'id']

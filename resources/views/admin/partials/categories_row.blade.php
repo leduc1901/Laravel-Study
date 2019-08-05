@@ -8,7 +8,7 @@
                                         </span>
 										<div class="category-fix">
                                             <a class="btn-category btn-primary" href="{{ route('admin.categories.edit', $category->id)}}"><i class="fa fa-edit"></i></a>
-											<a class="btn-category btn-danger" href="#"><i class="fas fa-times"></i></i></a>
+                                            <a class="btn-category btn-danger" onclick="return confirm('Are you sure about that ??')" href="{{route('admin.category.delete', $category->id )}}"><i class="fas fa-times"></i></i></a>
 
 										</div>
                                     </div>
