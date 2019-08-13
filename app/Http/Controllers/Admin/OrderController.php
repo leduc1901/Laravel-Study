@@ -14,7 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.orders.index');
     }
 
     /**
@@ -22,6 +22,11 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function processed()
+    {
+        return view('admin.orders.processed');
+    }
+    
     public function create()
     {
         //
@@ -46,7 +51,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -57,7 +62,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.orders.detail');
     }
 
     /**

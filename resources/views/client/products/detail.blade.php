@@ -1,4 +1,4 @@
-@extends('client.layouts.main');
+@extends('client.layouts.main')
 @section('content')
 		<!-- main -->
 		<div class="colorlib-shop">
@@ -9,7 +9,7 @@
 							<div class="row">
 								<div class="col-md-5">
 									<div class="product-entry">
-										<div class="product-img" style="background-image: url(/assets/client/images/item-6.jpg);">
+										<div class="product-img" style="background-image: url(/media/product/{{$product->avatar}});">
 
 										</div>
 
@@ -19,11 +19,11 @@
 									<form action="product/AddCart" method="post">
 
 										<div class="desc">
-										<h3>{{ $products['name']}}</h3>
+										<h3>{{ $product->name}}</h3>
 											<p class="price">
-											<span>{{ number_format($products->price)}}</span>
+											<span>{{ number_format($product->price)}}</span>
 											</p>
-											<p>thông tin</p>
+											<p>{{ $product->detail}}</p>
 											<div class="size-wrap">
 												<p class="size-desc">
 													size:
@@ -98,7 +98,7 @@
 								</ul>
 								<div class="tab-content">
 									<div id="description" class="tab-pane fade in active">
-										Đây là sản phẩm đẹp
+										{{$product->description}}
 									</div>
 								</div>
 							</div>

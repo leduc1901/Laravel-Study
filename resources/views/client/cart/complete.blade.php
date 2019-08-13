@@ -1,4 +1,4 @@
-@extends('client.layouts.main');
+@extends('client.layouts.main')
 @section('content')
 		<!-- main -->
 
@@ -39,15 +39,15 @@
 							<tbody>
 								<tr>
 									<td>Đơn hàng số</td>
-									<td>: 60235</td>
+									<td>: {{$order->id}}</td>
 								</tr>
 								<tr>
 									<td>Ngày mua</td>
-									<td>: Oct 03, 2017</td>
+									<td>: {{$order->created_at}}</td>
 								</tr>
 								<tr>
 									<td>Tổng tiền</td>
-									<td>: ₫ 4.000.000</td>
+									<td>:</td>
 								</tr>
 								<tr>
 									<td>Phương thức thanh toán</td>
@@ -62,15 +62,15 @@
 							<tbody>
 								<tr>
 									<td>Họ Tên</td>
-									<td>: Nguyễn Văn A</td>
+									<td>: {{ $order->name }}</td>
 								</tr>
 								<tr>
 									<td>Số điện thoại</td>
-									<td>: 0123 456 789</td>
+									<td>: {{ $order->phone }}</td>
 								</tr>
 								<tr>
 									<td>Địa chỉ</td>
-									<td>: Số nhà B8A ngõ 18 đường Võ Văn Dũng - Hoàng Cầu - Đống Đa </td>
+									<td>: {{ $order->address }} </td>
 								</tr>
 								<tr>
 									<td>Thành Phố</td>
@@ -85,15 +85,15 @@
 							<tbody>
 								<tr>
 									<td>Họ Tên</td>
-									<td>: Nguyễn Văn A</td>
+									<td>: {{ $order->name }}</td>
 								</tr>
 								<tr>
 									<td>Số điện thoại</td>
-									<td>: 0123 456 789</td>
+									<td>: {{ $order->phone }}</td>
 								</tr>
 								<tr>
 									<td>Địa chỉ</td>
-									<td>: Số nhà B8A ngõ 18 đường Võ Văn Dũng - Hoàng Cầu - Đống Đa </td>
+									<td>: {{ $order->address }} </td>
 								</tr>
 								<tr>
 									<td>Thành Phố</td>
@@ -116,23 +116,27 @@
 									
 										<div class="col-md-4 offset-md-4" align='right'>TỔNG CỘNG</div>
 									</div>
-									<div class="list-row d-flex justify-content-between">
-										<div class="col-md-4">Sản phẩm 1 : color:red ,size:XL</div>
-										<div class="col-md-4" align='right'>x 02</div>
-										<div class="col-md-4" align='right'>₫ 720.000</div>
 									
-									</div>
-									
-									<div class="list-row d-flex justify-content-between">
-											<div class="col-md-4">Sản phẩm 1 : color:red ,size:XL</div>
-											<div class="col-md-4" align='right'>x 02</div>
-											<div class="col-md-4" align='right'>₫ 720.000</div>
+									@foreach ($order->orderDetails()->get() as $orderDetail)
+										<div class="list-row d-flex justify-content-between">
+
+											
+											
+											<div class="col-md-4">Sản phẩm : {{ $orderDetail->product['name']}}</div>
+											
+											
+											<div class="col-md-4" align='right'>x {{ $orderDetail->quantity }}</div>
+											<div class="col-md-4" align='right'>₫ {{ $orderDetail->price }}</div>
 										
-									</div>
+										</div>
+									@endforeach 
+									
+									
+									
 									
 									<div class="list-row border-bottom-0 d-flex justify-content-between">
 											<div class="col-md-4"><h6>Tổng</h6></div>
-											<div class="col-md-4 offset-md-4" align='right'>₫ 1.420.000</div>		
+											<div class="col-md-4 offset-md-4" align='right'>₫ </div>		
 									</div>
 								</div>
 							</div>
@@ -141,6 +145,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- end main -->
+
 
 	@endsection

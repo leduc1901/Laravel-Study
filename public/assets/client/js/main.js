@@ -304,7 +304,7 @@
 		loaderPage();
 		owlCrouselFeatureSlide();
 		parallax();
-		datePicker();
+		//datePicker();
 	});
 
 

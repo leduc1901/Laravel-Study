@@ -11,16 +11,21 @@
                         <ul>
                             <li class="active"><a href="/">Trang chủ</a></li>
                             <li class="has-dropdown">
-                                <a href="products">Cửa hàng</a>
+                                <a href="{{ route('client.products.index')}}">Cửa hàng</a>
                                 <ul class="dropdown">
                                     <li><a href="cart">Giỏ hàng</a></li>
                                     <li><a href="#">Thanh toán</a></li>
 
                                 </ul>
                             </li>
-                            <li><a href="about">Giới thiệu</a></li>
-                            <li><a href="contact">Liên hệ</a></li>
-                            <li><a href="cart"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a></li>
+                            <li><a href="{{ route('client.home.about')}}">Giới thiệu</a></li>
+                            <li><a href="{{ route('client.home.contact')}}">Liên hệ</a></li>
+                            <li>
+                                <a href="{{ route('client.cart.index')}}">
+                                    <i class="icon-shopping-cart"></i> 
+                                        Giỏ hàng [<span class="cart-quantity">{{\Cart::getTotalQuantity()>9?"9+":\Cart::getTotalQuantity()}}</span>]
+                                    </a>
+                                </li>
                         </ul>
                     </div>
                 </div>

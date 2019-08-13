@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.1.3",
         "barryvdh/laravel-debugbar": "^3.2",
+        "darryldecode/cart": "^4.0",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",

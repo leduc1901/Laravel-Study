@@ -22,9 +22,25 @@ Route::get('cart/checkout',[
     'as' => 'client.cart.checkout',
     'uses' => 'CartController@checkout'
 ]);
-Route::get('complete',[
+Route::get('cart/complete/{id}',[
     'as' => 'client.cart.complete',
     'uses' => 'CartController@complete'
+]);
+Route::post('/cart/add',[
+    'as' => 'client.cart.add',
+    'uses' => 'CartController@add'
+]);
+Route::post('/cart/store',[
+    'as' => 'client.cart.store',
+    'uses' => 'CartController@store'
+]);
+Route::post('/cart/update' , [
+    'as' => 'client.cart.update' , 
+    'uses' => 'CartController@update'
+]);
+Route::post('/cart/destroy' , [
+    'as' => 'client.cart.destroy' , 
+    'uses' => 'CartController@destroy'
 ]);
 Route::get('products',[
     'as' => 'client.products.index',

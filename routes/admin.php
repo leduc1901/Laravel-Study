@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth'], function(){
     //cai nay dat trc
     Route::get('orders/processed',[
         'as' => 'admin.orders.processed',
-        'parameters' => ['orders' => 'id']
+        'uses' => 'OrderController@processed'
     ]);
     Route::resource('orders','OrderController',[
         'as' => 'admin',
